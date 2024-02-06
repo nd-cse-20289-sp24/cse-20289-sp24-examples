@@ -96,32 +96,51 @@ Three volunteers to role-play and demonstrate a pipeline.
 
 1. How many MATH vs PHYS vs CSE courses?
 
-        $ curl -sLk https://yld.me/zlH | grep -Eo '(MATH|PHYS|CSE)' | sort | uniq -c
+        $ curl -sLk https://yld.me/zlH
+                | grep -v meta
+                | grep credits
+                | grep -Eo '(MATH|PHYS|CSE)'
+                | sort
+                | uniq -c
 
 2. How many credits per semester?
 
         $ curl -sLk https://yld.me/zlH
-		| sed -En 's/.*Total Credit Hours: ([0-9]{2}|[0-9]{2}\.[0-9]).*/\1/p'
-		| sort | uniq -c
+                | grep -v meta
+                | grep -Eo 'Total Credit Hours: [0-9\.]+'
+                | cut -d ' ' -f 4
+                | sort
+                | uniq -c
+
+        $ curl -sLk https://yld.me/zlH
+                | grep -v meta
+                | sed -En 's/.*Total Credit Hours: ([0-9\.]+).*/\1/p'
+                | sort
+                | uniq -c
 
 3. How many sophomore CSE courses?
 
-        $ curl -sLk https://yld.me/zlH | grep -Eo 'CSE 2[0-9]{4}' | sort
+        $ curl -sLk https://yld.me/zlH
+                | grep -Eo 'CSE 2[0-9]{4}'
+                | sort
 
         $ curl -sLk https://yld.me/zlH
-		| sed 's/<br>/\n/g' | sed -En 's/.*(CSE 2[0-9]{4}).*/\1/p' | sort
+                | sed 's/<br>/\n/g'
+                | sed -En 's/.*(CSE 2[0-9]{4}).*/\1/p'
+                | sort
 
 4. How many sophomore CSE credits?
 
         $ curl -sLk https://yld.me/zlH
-		| sed 's/<br>/\n/g' 
-		| sed -En 's/.*(CSE 2[0-9]{4}).*([0-9]) credits.*/\2/p'
-		| awk '{ sum += $1 } END { print sum }'
+                | sed 's/<br>/\n/g' 
+                | sed -En 's/.*(CSE 2[0-9]{4}).*([0-9]) credits.*/\2/p'
+                | awk '{ sum += $1 } END { print sum }'
 
 5. How many different types of electives?
 
         $ curl -sLk https://yld.me/zlH
-		| sed -E 's/<(br|p)>/\n/g' 
-		| grep -v meta
-		| sed -En 's/([^>]+ Elective).*credits.*/\1/p' 
-		| sort | uniq -c
+                | grep -v meta
+                | sed -E 's/<(br|p)>/\n/g' 
+                | sed -En 's/([^>]+ Elective).*credits.*/\1/p' 
+                | sort
+                | uniq -c
