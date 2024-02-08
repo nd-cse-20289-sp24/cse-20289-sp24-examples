@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Globals
+
+TARGET="spaces"
+SPACES=""
+WIDTH=4
+
 # Functions
 
 usage() {
@@ -13,9 +19,6 @@ EOF
 
 # Parse command-line options
 
-TARGET='spaces'
-WIDTH=4
-
 while [ $# -gt 0 ]; do
     case $1 in
 	-t) TARGET=$2; shift;;
@@ -28,7 +31,6 @@ done
 
 # Main execution: filter pipeline
 
-SPACES=""
 for i in $(seq $WIDTH); do
     SPACES=$SPACES" "
 done
