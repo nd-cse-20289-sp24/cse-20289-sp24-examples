@@ -5,19 +5,12 @@ import sys
 # Functions
 
 def fizzbuzz(start: int=1, stop: int=100) -> list[str]:
-    ''' 
+    '''
     >>> fizzbuzz(1, 5)
-    1
-    2
-    Fizz
-    4
-    Buzz
-    
+    ['1', '2', 'Fizz', '4', 'Buzz']
+
     >>> fizzbuzz(12, 15)
-    Fizz
-    13
-    14
-    FizzBuzz
+    ['Fizz', '13', '14', 'FizzBuzz']
     '''
     # Version 1: add docstring
     # Version 2: add type annotations
@@ -49,7 +42,7 @@ def main(arguments: list[str]=sys.argv[1:]) -> None:
         start = int(arguments[0])
     except IndexError:
         start = 1
-    
+
     try:
         stop = int(arguments[1])
     except IndexError:
