@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+import doctest
+import itertools
+import io
+import math
+import mypy.api
+import subprocess
+import unittest
+import unittest.mock
+
+import fizzbuzz
+
+# Unit Tests
+
+class FizzBuzzTest(unittest.TestCase):
+
+    def test_00_doctest(self):
+        failures, tests = doctest.testmod(fizzbuzz, verbose=False)
+        self.assertEqual(failures, 0)
+        self.assertEqual(tests, 2)
+
+    def test_01_mypy(self):
+        _, _, exit_status = mypy.api.run(['fizzbuzz.py'])
+        self.assertTrue(exit_status == 0)
+
+    def test_02_fizzbuzz(self):
+        self.assertEqual(
+            fizzbuzz.fizzbuzz(6, 10),
+            ['Fizz', '7', '8', 'Fizz', 'Buzz']
+        )
+        self.assertEqual(
+            fizzbuzz.fizzbuzz(27, 30),
+            ['Fizz', '28', '29', 'FizzBuzz']
+        )
+
+    def test_03_main(self):
+        with unittest.mock.patch('sys.stdout', new=io.StringIO()) as output:
+            fizzbuzz.main('10 15'.split())
+
+        outputs   = output.getvalue().splitlines()
+        expecteds = ['Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
+
+        for output_line, expected_line in itertools.zip_longest(outputs, expecteds):
+            self.assertEqual(output_line, expected_line)
+
+# Main Execution
+
+if __name__ == '__main__':
+    unittest.main()
+
+# vim: set sts=4 sw=4 ts=8 expandtab ft=python:
