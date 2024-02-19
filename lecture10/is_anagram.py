@@ -48,13 +48,11 @@ def is_anagram(word1: str, word2: str) -> bool:
 
     return True
 
-
-def main():
+def main(arguments=sys.argv[1:], stream=sys.stdin) -> None:
     # Parse command-line options
-    arguments  = sys.argv[1:]                           # Review: command line arguments
-    ignorecase = False
+    ignorecase = False                                  # Review: command line arguments
 
-    while arguments and arguments[0].startswith('-'):
+    while arguments:
         argument = arguments.pop(0)                     # Discuss: popping from queue
         if argument == '-i':
             ignorecase = True
@@ -64,7 +62,7 @@ def main():
             usage(1)
 
     # Process standard input
-    for line in sys.stdin:                              
+    for line in stream:
         if ignorecase:
             line = line.lower()
 
