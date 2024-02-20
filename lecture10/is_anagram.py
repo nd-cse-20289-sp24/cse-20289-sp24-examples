@@ -38,15 +38,9 @@ def is_anagram(word1: str, word2: str) -> bool:
     counts1 = count_letters(word1)
     counts2 = count_letters(word2)
 
-    for key in counts1:                                 # Discuss: iterating through dictionary
-        if counts1[key] != counts2.get(key, 0):
-            return False
+    return counts1 == counts2
 
-    for key in counts2:
-        if counts2[key] != counts1.get(key, 0):
-            return False
-
-    return True
+# Main Execution
 
 def main(arguments=sys.argv[1:], stream=sys.stdin) -> None:
     # Parse command-line options
@@ -71,8 +65,6 @@ def main(arguments=sys.argv[1:], stream=sys.stdin) -> None:
             print('ANAGRAM!')
         else:
             print('NOT ANAGRAM!')
-
-# Main Execution
 
 if __name__ == '__main__':
     main()
