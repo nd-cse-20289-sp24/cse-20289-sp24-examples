@@ -19,7 +19,7 @@ def zipcodes(city: str, state: str) -> None:
     regex = r'/([^/]+)/[A-Z]{2}/([0-9]{5})/">'  # Review: regex
 
                                                 # Discuss: popen
-    #response = os.popen('curl -sL {}'.format(url)).read()
+    #response = os.popen(f'curl -sL {url}').read()
     #for current, zipcode in re.findall(regex, response):
 
     headers  = {'User-Agent': __name__}         # Discuss: requests
@@ -37,7 +37,7 @@ def main():
     city  = None                                # Review: None
 
     arguments = sys.argv[1:]                    # Review: parsing arguments
-    while arguments and arguments[0].startswith('-'):
+    while arguments:
         argument = arguments.pop(0)
         if argument == '-c':
             city  = arguments.pop(0)
