@@ -8,11 +8,11 @@ import requests
 
 # Functions
 
-def usage(status=0):
+def usage(exit_status=0):
     print(f'''Usage: {os.path.basename(sys.argv[0])} [flags]
     -c      CITY    Which city to search
     -s      STATE   Which state to search (Indiana)''')
-    sys.exit(status)
+    sys.exit(exit_status)
 
 def zipcodes(city: str, state: str) -> None:
     url   = f'https://www.zipcodestogo.com/{state}/'
@@ -32,12 +32,11 @@ def zipcodes(city: str, state: str) -> None:
 
 # Main execution
 
-def main():
+def main(arguments=sys.argv[1:]):
     state = 'Indiana'
     city  = None                                # Review: None
 
-    arguments = sys.argv[1:]                    # Review: parsing arguments
-    while arguments:
+    while arguments:                            # Review: parsing arguments
         argument = arguments.pop(0)
         if argument == '-c':
             city  = arguments.pop(0)
