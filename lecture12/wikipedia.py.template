@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import pprint
+import re
+import sys
+
+import requests
+
+# Constants
+
+URL      = 'https://en.wikipedia.org/w/api.php' # Discuss: APIs
+PARAMS   = {
+    'action'  : 'query', 
+    'list'    : 'search', 
+    'format'  : 'json', 
+    'srsearch': None,
+}
+
+# Main Execution
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
