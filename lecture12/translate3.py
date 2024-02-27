@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 
-# ls -l /dev | grep -v total | awk '{print $4}' | sort | uniq -c | sort -rn
+'''
+Translate: ls -l /dev | grep -v total | awk '{print $4}' | sort | uniq -c | sort -rn
+'''
 
 import os
+
+# Translation
 
 counts = {}
 for index, line in enumerate(os.popen('ls -l /dev')):

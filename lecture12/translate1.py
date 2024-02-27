@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 
-# cat /etc/passwd | cut -d : -f 1 | grep d$ | wc -l
+'''
+Translate: cat /etc/passwd | cut -d : -f 1 | grep d$ | wc -l
+'''
+
+import csv
+
+# Translation
 
 count = 0
 for line in open('/etc/passwd'):
@@ -11,8 +17,6 @@ for line in open('/etc/passwd'):
 print(count)
 
 # Alternative
-
-import csv
 
 users = csv.reader(open('/etc/passwd'), delimiter=':')
 print(sum(1 for user in users if user[0].endswith('d')))

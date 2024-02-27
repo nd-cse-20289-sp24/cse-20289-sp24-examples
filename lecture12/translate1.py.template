@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+'''
+Translate: cat /etc/passwd | cut -d : -f 1 | grep d$ | wc -l
+'''
+
+import csv
+
+# Translation
