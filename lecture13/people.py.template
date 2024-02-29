@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import collections
+
+# Structures                                    
+
+Person = collections.namedtuple('Person', 'first_name last_name')
+
+# Variables
+
+People = [
+    Person('Peter'   , 'Bui'),
+    Person('Mayleen' , 'Liu'),
+    Person('James'   , 'Lindell'),
+    Person('Victoria', 'Mendez'),
+    Person('Caleb'   , 'Bui'),
+]
+
+# Default sort                                 
+
+# Sort by last_name with helper function
+
+# Sort by last_name with lambda expression
+
+# Sort by last_name then first_name using two sorts
+
+# Sort by last_name then first_name using one sort
