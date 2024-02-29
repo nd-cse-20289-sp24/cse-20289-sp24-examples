@@ -16,10 +16,10 @@ data   = requests.get(URL).text.splitlines()
 # Compute individual scores (Imperative)
 
 scores = []
-for student in csv.reader(data):           
-    points = []                           
-    for point in student:                
-        points.append(float(point))     
+for student in csv.reader(data):
+    points = []
+    for point in student:
+        points.append(float(point))
     scores.append(sum(points))
 
 print(scores)
@@ -33,6 +33,13 @@ print(scores)
 # Compute individual scores (List Comprehensions) - Phase II
 
 # Filter scores (Imperative)
+
+Bs = []
+for score in scores:                            # Discuss: high-level goal
+    if .8*MAX <= score < .9*MAX:                # Discuss: common pattern?
+        Bs.append(score)                        # Discuss: change to As?
+
+print(len(Bs))
 
 # Filter scores (Functional)
 
