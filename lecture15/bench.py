@@ -21,8 +21,7 @@ def benchmark_once(flag):
     command = f'seq 10000000 | measure ./odds.py {flag} 2>&1 > /dev/null'
     return map(float, re.findall(r'([0-9\.]+)', os.popen(command).read()))
 
-def benchmark(version):
-    name, flag    = version
+def benchmark(name, flag):
     seconds_total = []
     memory_total  = []
 
@@ -49,13 +48,15 @@ def benchmark(version):
 def main():
     '''
     # Version 1: Sequential
-    for version in VERSIONS:
-        benchmark(version)
+    for name, flag in VERSIONS:
+        benchmark(name, flag)
     '''
 
     # Version 2: Parallel
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        executor.map(benchmark, VERSIONS)
+        names = [v[0] for v in VERSIONS]
+        flags = [v[1] for v in VERSIONS]
+        executor.map(benchmark, names, flags)
 
 if __name__ == '__main__':
     main()
