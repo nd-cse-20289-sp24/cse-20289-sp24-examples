@@ -1,0 +1,22 @@
+/* palindrome.c */
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+
+bool is_palindrome(const char *s) {
+    return false;
+}
+
+bool is_palindrome_permutation(const char *s) {
+    return false;
+}
+
+bool is_palindrome_permutation_bitset(const char *s) {
+    return false;
+}
+
+int main(int argc, char *argv[]) {
+    return 0;
+}
