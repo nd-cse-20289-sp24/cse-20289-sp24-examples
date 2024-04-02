@@ -1,0 +1,26 @@
+/* point.c */
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+
+// TODO: struct, union
+
+void point_format(Point *p, FILE *stream) {
+    // TODO: Print point to stream
+    fprintf(stream, "Point{x: %d, y: %d}\n");
+}
+
+int main(int argc, char *argv[]) {
+    // TODO: Define some points
+
+    // TODO: Print size and locations of point structure
+
+    // TODO: Use print_format to print point structure
+
+    // TODO: Define array of points
+
+    // TODO: Loop through array with pointers and print each point
+
+    return EXIT_SUCCESS;
+}
