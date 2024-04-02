@@ -1,0 +1,28 @@
+/* stack.c */
+
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int power(int base, int exponent) {
+    if (exponent <= 1)
+    	return 1;
+
+    return base * power(base, exponent - 1);
+}
+
+int twice(int x) {
+    int result = x + x;
+    return result;
+}
+
+int undefined(int x) {
+    int value;
+    printf("value is: %d\n", value);
+    return value;
+}
+
+int main(int argc, char *argv[]) {
+    // TODO
+    return EXIT_SUCCESS;
+}
