@@ -1,0 +1,46 @@
+/* list.c */
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+/* Node Structure */
+
+// TODO
+
+Node *	node_create(int data, Node *next) {
+    // TODO
+}
+
+void	node_delete(Node *n, bool recursive) {
+    // TODO
+}
+
+/* List Structure */
+
+// TODO
+
+bool	list_contains(List *l, int value) {
+    // TODO
+}
+
+void	list_add(List *l, int value) {
+    // TODO
+}
+
+void	list_dump(List *l) {
+    // TODO
+}
+
+/* Main Execution */
+
+int main(int argc, char *argv[]) {
+    int numbers[] = {4, 6, 6, 3, 7, -1};
+
+    // TODO: Add numbers to bitset
+
+    // TODO: Check bitset for numbers
+
+    return 0;
+}

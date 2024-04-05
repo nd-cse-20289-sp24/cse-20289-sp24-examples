@@ -1,0 +1,37 @@
+/* bitset.c */
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Type Definitions */
+
+typedef int64_t Bitset;
+
+/* Functions */
+
+void	bitset_add(Bitset *b, int value) {
+    // TODO
+}
+
+bool	bitset_contains(Bitset *b, int value) {
+    // TODO
+}
+
+/* Main Execution */
+
+int main(int argc, char *argv[]) {
+    int numbers[] = {4, 6, 6, 3, 7, -1};
+    Bitset bitset = 0;
+
+    printf("Bitset: %ld\n", bitset);
+    
+    // TODO: Add numbers to bitset
+
+    printf("Bitset: %ld\n", bitset);
+
+    // TODO: Check bitset for numbers
+
+    return 0;
+}
