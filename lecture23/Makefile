@@ -4,7 +4,7 @@ TARGET=		$(SOURCE:.c=)
 all:		$(TARGET)
 
 %:%.c
-	gcc -g -std=gnu99 -Wall -o $@ $<
+	gcc -Wall -g std=gnu99 -o $@ $<
 
 clean:
 	rm -f $(TARGET)
